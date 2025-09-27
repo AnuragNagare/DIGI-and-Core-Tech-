@@ -7,7 +7,7 @@ FastAPI endpoints for the AI Shopping List service
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 import uvicorn
 import json
 from datetime import datetime
@@ -61,7 +61,7 @@ class ShoppingListRequest(BaseModel):
     current_inventory: List[InventoryItem]
     shopping_history: List[ShoppingHistoryEntry]
     budget_limit: Optional[float] = None
-    preferences: Optional[Dict[str, any]] = None
+    preferences: Optional[Dict[str, Any]] = None
 
 class FeedbackRequest(BaseModel):
     user_id: str
